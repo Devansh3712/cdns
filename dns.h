@@ -3,6 +3,32 @@
 #include <arpa/inet.h>
 #include <stdint.h>
 
+enum RCode {
+	NO_ERROR = 0,
+	FORMAT_ERROR = 0,
+	SERVER_ERROR = 1,
+	NAME_ERROR = 2,
+	NOT_IMPLEMENTED = 4,
+	REFUSED = 5,
+};
+
+enum QType {
+	A = 1,
+	NS = 2,
+	CNAME = 5,
+	_NULL = 10,
+	MX = 15,
+	TXT = 16,
+	AAAA = 28,
+};
+
+enum QClass {
+	IN = 1,
+	CS = 2,
+	CH = 3,
+	HS = 4,
+};
+
 typedef struct {
 	uint16_t id;
 	uint8_t qr: 1;

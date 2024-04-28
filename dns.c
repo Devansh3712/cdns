@@ -32,7 +32,7 @@ uint8_t* build_packet(char* hostname, size_t* packet_len) {
 		.rd = htons(0),
 		.ra = htons(0),
 		.z = htons(0),
-		.rcode = htons(0),
+		.rcode = htons(NO_ERROR),
 		.qdcount = htons(1),
 		.ancount = htons(0),
 		.nscount = htons(0),
@@ -40,8 +40,8 @@ uint8_t* build_packet(char* hostname, size_t* packet_len) {
 	};
 	dns_question question = {
 		.qname = encode_name(hostname),
-		.qtype = htons(1),
-		.qclass = htons(1),
+		.qtype = htons(A),
+		.qclass = htons(IN),
 	};
 
 	*packet_len = sizeof(header) + strlen(hostname) + 2
